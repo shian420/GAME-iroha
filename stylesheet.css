@@ -1,0 +1,116 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+*{
+  font-family: system-ui,sans-serif;
+}
+
+body{
+  background-color: black;
+  width: 100%;
+  }
+  .container{
+    padding-left: 25px;
+    width: 1100px;
+    padding: 70px 0;
+    margin: 0 auto;
+  }
+#container{
+display: flex;
+  flex-wrap: wrap;
+}
+
+.box{
+  width: 150px;
+  height: 150px;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 150px;
+  border:solid 3px white;
+  margin-left: 18px;
+  margin-top: 20px;
+  background-color: rgb(255, 182, 251);
+  transition: 0.8s;
+  cursor: pointer;
+}
+
+.win{
+  border-radius: 50%;
+  background-color: skyblue;
+  transform: rotate(360deg);
+}
+
+.lose{
+  font-size: 20px;
+  transform: scale(0.8);
+  background-color: black;
+  color: white;
+}
+
+button{
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 18px;
+  background-color: rgb(36, 36, 36);
+  color: white;
+  border: solid 2px white;
+  font-size: 30px; 
+  cursor: pointer;
+  display: block;
+}
+
+button span{
+  color: white;
+  font-size: 8px;
+  display: block;
+}
+.btnb{
+  opacity: 0.8;
+}
+
+.card-container{
+  padding-left: 40px;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  width: 170px;
+  height: 170px;
+  background-color:white;
+  border: solid 3px white;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 170px;
+  color: black;
+  font-size: 40px;
+}
+
+.defaulut{
+  background-image: url('d.jpg');
+  background-size: contain;
+}
+.close{
+  opacity: 0;
+}
