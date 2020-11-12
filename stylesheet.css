@@ -88,13 +88,60 @@ button span{
 }
 
 .card-container{
-  padding-left: 40px;
+  width: 1100px;
+  padding-left: 20px;
   margin: 0 auto;
   padding-top: 50px;
   display: flex;
   flex-wrap: wrap;
 }
-.card{
+.bg1{
+  background-image: url('image/bg1.jpg');
+  background-size: contain;
+}
+.bg0{
+  background-image: url('image/bg1.jpg');
+  background-size: contain;
+}
+.bg10{
+  background-image: url('image/bg10.jpg');
+  background-size: contain;
+}
+.bg2{
+  background-image: url('image/bg2.jpg');
+  background-size: contain;
+}
+.bg3{
+  background-image: url('image/bg3.jpg');
+  background-size: contain;
+}
+.bg4{
+  background-image: url('image/bg4.jpg');
+  background-size: contain;
+}
+.bg5{
+  background-image: url('image/bg5.jpg');
+  background-size: contain;
+}
+.bg6{
+  background-image: url('image/bg6.jpg');
+  background-size: contain;
+}
+.bg7{
+  background-image: url('image/bg7.jpg');
+  background-size: contain;
+}
+.bg8{
+  background-image: url('image/bg8.jpg');
+  background-size: contain;
+}
+.bg9{
+  background-image: url('image/bg9.jpg');
+  background-size: contain;
+}
+
+
+.card,.card2,.card3{
   width: 170px;
   height: 170px;
   background-color:white;

@@ -51,9 +51,15 @@ if(count === 1){
 {//ここから神経衰弱
 var cardCase=[];
 var countf=true;
+var timerFlg=false;
 var cardss;
-var time;
+var cardss2;
+var co;
 var sound;
+var flg2nd;
+var soimgArr=[];
+var images=[1,2,3,4,5,6,7,8,9,10];
+console.log(images);
 var soundArr=[
   'voice/iroha1.wav',
   'voice/iroha2.wav',
@@ -76,14 +82,15 @@ var arr=[];
     arr.push(i);
     //0~9が2つずつある状態計20個
   }
-  shufflSound(soundArr);//効果音シャッフル
   shuffl(arr);//ナンバーシャッフル
+
+
 //div生成
 const cardBox=document.getElementById('cardBox');
 
 for(var i=0;i<20;i++){
   const div=document.createElement('div');
-  div.className="card defaulut";//最初は裏
+  div.className="card2 defaulut";//最初は裏
   div.index=i;
   div.number=arr[i];
   //soundとdiv.numberは対応している
@@ -96,23 +103,28 @@ for(var i=0;i<20;i++){
 
 
   //配列シャッフル
-//20が入る
-function shufflSound(soundArr){
-  var s=soundArr.length;
-var k,temps;
 
-while(s){//20回繰り返す
-  k=Math.floor(Math.random()*s--);//sを1減らす
-temps=soundArr[s];//元の19～0番目の値が順にtempsに入る。
-soundArr[s]=soundArr[k];//元の配列0～19番目(ランダム)の値を順に代入
-  soundArr[k]=temps;
+function shuffle2(soundArr,images){
+  var n2=soundArr.length;
+  var j2,temp2;
+
+  while(n2){//n2は10
+  j2=Math.floor(Math.random()*n2--);
+  temp2=soundArr[n2];
+  soundArr[n2]=soundArr[j2];
+  soundArr[j2]=temp2;
+
+  temp2=images[n2];
+  images[n2]=images[j2];
+  images[j2]=temp2;
 }
-return soundArr;
+ soimgArr.push(soundArr,images);
+ return soimgArr;
 }
 
-function shuffl(arr){
+function shuffl(arr,images){
   var n=arr.length;
-  var j,temp
+  var j,temp;
   while(n){//20回繰り返す
 
   j=Math.floor(Math.random()*n--);//nを1減らす
@@ -123,24 +135,29 @@ arr[n]=arr[j];//元の配列0～19番目(ランダム)の値を順に代入
 return arr;//元の値がランダムに入っている。
 }//シャッフル終了
 
+shuffle2(soundArr,images);
+console.log(soimgArr);
+
 //ここからクリック時の操作
 function turn(e){
 var div=e.target;
 
-if(time) return;
+if(timerFlg) return;
 
-if(div.innerHTML == ""){//もし裏なら
-div.className="card";
-div.innerHTML=div.number;
-sound=new Audio(soundArr[div.number]);
+if(co === 1) sound.pause();
 
-sound.play();
-//その数字になる
-  }else{
-    return;
-  }
-  //1回目とか関係なくあくまで裏かどうかのみ
+  if(div.innerHTML == ""){//もし裏なら
+  div.classList.add("bg" + soimgArr[1][div.number]);
+  div.classList.remove("defaulut");
 
+  sound=new Audio(soimgArr[0][div.number]);
+  sound.play();
+  co=1;
+  //その数字になる
+    }else{
+      return;
+    }
+    //1回目とか関係なくあくまで裏かどうかのみ
   if(countf){ //初めて引いた
     cardss=div; //1回目に引いたカード(numberやindexは.を付ける)
     countf=false;
@@ -148,28 +165,33 @@ sound.play();
   }else{ //2回目
 
     if(cardss.number == div.number){
-        time=setTimeout(function(){//これを書かないと一瞬でカードが消える
-          div.className="card close";
-          cardss.className="card close";
-          time=NaN;
-        },5000)
+
+      flgs();
+
+        sound.addEventListener('ended',function(){
+          cardss2.className="card2 close";
+          cardss.className="card2 close";
+          timerFlg=false;
+        });
 
     }else{ //2回目で外れ 裏に戻す作業
-time=setTimeout(function(){
-      div.className="card defaulut";
-      div.innerHTML="";
-      cardss.className="card defaulut";
-      cardss.innerHTML="";
-      cardss=null;
-      time=NaN;
-    },5000);
+
+      flgs();
+
+      sound.addEventListener('ended',function(){
+
+      cardss2.className="card2 defaulut";
+      cardss.className="card2 defaulut";
+      timerFlg=false;
+    });
   }
   countf=true;
 }
-
-
+function flgs(){
+  timerFlg=true;
+  cardss2=div;
+}
 }//turn()の終了
-
 }//ここまで神経衰弱
 
 //どっとインストール
