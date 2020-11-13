@@ -139,19 +139,62 @@ button span{
   background-image: url('image/bg9.jpg');
   background-size: contain;
 }
+.bg10{
+  background-image: url('image/bg10.jpg');
+  background-size: contain;
+}
+.bg11{
+  background-image: url('image/bg11.jpg');
+  background-size: contain;
+}
+.bg12{
+  background-image: url('image/bg12.jpg');
+  background-size: contain;
+}
+.bg13{
+  background-image: url('image/bg13.jpg');
+  background-size: contain;
+}
+.bg14{
+  background-image: url('image/bg14.jpg');
+  background-size: contain;
+}
+.bg15{
+  background-image: url('image/bg15.jpg');
+  background-size: contain;
+}
+.bg16{
+  background-image: url('image/bg16.jpg');
+  background-size: contain;
+}
+.bg17{
+  background-image: url('image/bg17.jpg');
+  background-size: contain;
+}
+.bg18{
+  background-image: url('image/bg18.jpg');
+  background-size: contain;
+}
+.bg19{
+  background-image: url('image/bg19.jpg');
+  background-size: contain;
+}
+.bg20{
+  background-image: url('image/bg20.jpg');
+  background-size: contain;
+}
 
 
-.card,.card2,.card3{
+.card{
   width: 170px;
   height: 170px;
   background-color:white;
   border: solid 3px white;
   margin-left: 20px;
   margin-bottom: 20px;
-  text-align: center;
   line-height: 170px;
-  color: black;
-  font-size: 40px;
+  color: rgba(0, 0, 0, 0);
+  font-size: 1px;
 }
 
 .defaulut{

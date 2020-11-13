@@ -52,14 +52,16 @@ if(count === 1){
 var cardCase=[];
 var countf=true;
 var timerFlg=false;
+var timerFlg2=false;
 var cardss;
 var cardss2;
 var co;
 var sound;
 var flg2nd;
+var dubFlg;
+var times;
 var soimgArr=[];
-var images=[1,2,3,4,5,6,7,8,9,10];
-console.log(images);
+var images=[];
 var soundArr=[
   'voice/iroha1.wav',
   'voice/iroha2.wav',
@@ -70,8 +72,22 @@ var soundArr=[
   'voice/iroha7.wav',
   'voice/iroha8.wav',
   'voice/iroha9.wav',
-  'voice/iroha10.wav'
+  'voice/iroha10.wav',
+  'voice/iroha11.wav',
+  'voice/iroha12.wav',
+  'voice/iroha13.wav',
+  'voice/iroha14.wav',
+  'voice/iroha15.wav',
+  'voice/iroha16.wav',
+  'voice/iroha17.wav',
+  'voice/iroha18.wav',
+  'voice/iroha19.wav',
+  'voice/iroha20.wav'
 ];
+
+for(var iij=1;iij<=20;iij++){
+  images.push(iij);
+}
 
 window.onload=function(){
 
@@ -90,7 +106,7 @@ const cardBox=document.getElementById('cardBox');
 
 for(var i=0;i<20;i++){
   const div=document.createElement('div');
-  div.className="card2 defaulut";//最初は裏
+  div.className="card defaulut";//最初は裏
   div.index=i;
   div.number=arr[i];
   //soundとdiv.numberは対応している
@@ -122,7 +138,7 @@ function shuffle2(soundArr,images){
  return soimgArr;
 }
 
-function shuffl(arr,images){
+function shuffl(arr){
   var n=arr.length;
   var j,temp;
   while(n){//20回繰り返す
@@ -142,14 +158,29 @@ console.log(soimgArr);
 function turn(e){
 var div=e.target;
 
-if(timerFlg) return;
 
-if(co === 1) sound.pause();
+if(timerFlg){
+  return;
+
+}
+if(timerFlg2){
+  cardss2.className="card defaulut";
+  cardss2.innerHTML="";
+  cardss.className="card defaulut";
+  cardss.innerHTML="";
+  timerFlg2=false;
+}
+
+  if(co === 1){
+     sound.pause();
+   }
+
+
 
   if(div.innerHTML == ""){//もし裏なら
   div.classList.add("bg" + soimgArr[1][div.number]);
   div.classList.remove("defaulut");
-
+  div.innerHTML=div.number;
   sound=new Audio(soimgArr[0][div.number]);
   sound.play();
   co=1;
@@ -166,30 +197,27 @@ if(co === 1) sound.pause();
 
     if(cardss.number == div.number){
 
-      flgs();
+      cardss2=div;
+      timerFlg=true;
 
         sound.addEventListener('ended',function(){
-          cardss2.className="card2 close";
-          cardss.className="card2 close";
+          cardss2.className="card close";
+          cardss.className="card close";
           timerFlg=false;
         });
 
     }else{ //2回目で外れ 裏に戻す作業
-
-      flgs();
-
+      cardss2=div;
+      timerFlg2=true;
       sound.addEventListener('ended',function(){
-
-      cardss2.className="card2 defaulut";
-      cardss.className="card2 defaulut";
-      timerFlg=false;
+      cardss2.className="card defaulut";
+      cardss2.innerHTML="";
+      cardss.className="card defaulut";
+      cardss.innerHTML="";
+      timerFlg2=false;
     });
   }
   countf=true;
-}
-function flgs(){
-  timerFlg=true;
-  cardss2=div;
 }
 }//turn()の終了
 }//ここまで神経衰弱
