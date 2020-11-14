@@ -95,93 +95,75 @@ button span{
   display: flex;
   flex-wrap: wrap;
 }
+.bg1,.bg2,.bg3,.bg4,.bg5,.bg6,.bg7,.bg8,.bg9,.bg10,.bg11,.bg12,.bg13,
+.bg14,.bg15,.bg16,.bg17,.bg18,.bg19,.bg20{
+  background-size: contain;
+}
 .bg1{
   background-image: url('image/bg1.jpg');
-  background-size: contain;
 }
 .bg0{
   background-image: url('image/bg1.jpg');
-  background-size: contain;
 }
 .bg10{
   background-image: url('image/bg10.jpg');
-  background-size: contain;
 }
 .bg2{
   background-image: url('image/bg2.jpg');
-  background-size: contain;
 }
 .bg3{
   background-image: url('image/bg3.jpg');
-  background-size: contain;
 }
 .bg4{
   background-image: url('image/bg4.jpg');
-  background-size: contain;
 }
 .bg5{
   background-image: url('image/bg5.jpg');
-  background-size: contain;
 }
 .bg6{
   background-image: url('image/bg6.jpg');
-  background-size: contain;
 }
 .bg7{
   background-image: url('image/bg7.jpg');
-  background-size: contain;
 }
 .bg8{
   background-image: url('image/bg8.jpg');
-  background-size: contain;
 }
 .bg9{
   background-image: url('image/bg9.jpg');
-  background-size: contain;
 }
 .bg10{
   background-image: url('image/bg10.jpg');
-  background-size: contain;
 }
 .bg11{
   background-image: url('image/bg11.jpg');
-  background-size: contain;
 }
 .bg12{
   background-image: url('image/bg12.jpg');
-  background-size: contain;
 }
 .bg13{
   background-image: url('image/bg13.jpg');
-  background-size: contain;
 }
 .bg14{
   background-image: url('image/bg14.jpg');
-  background-size: contain;
 }
 .bg15{
   background-image: url('image/bg15.jpg');
-  background-size: contain;
 }
 .bg16{
   background-image: url('image/bg16.jpg');
-  background-size: contain;
 }
 .bg17{
   background-image: url('image/bg17.jpg');
-  background-size: contain;
 }
 .bg18{
   background-image: url('image/bg18.jpg');
-  background-size: contain;
 }
 .bg19{
   background-image: url('image/bg19.jpg');
-  background-size: contain;
 }
 .bg20{
   background-image: url('image/bg20.jpg');
-  background-size: contain;
 }
 
 
@@ -194,7 +176,6 @@ button span{
   margin-bottom: 20px;
   line-height: 170px;
   color: rgba(0, 0, 0, 0);
-  font-size: 1px;
 }
 
 .defaulut{
@@ -203,4 +184,105 @@ button span{
 }
 .close{
   opacity: 0;
+}
+
+.resultWrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgb(253, 238, 178);
+}
+.reset{
+  display: none;
+}
+.image{
+  position: relative;
+  width:100%;
+  height: 100%;
+  margin:0 auto;
+}
+img{
+  position: absolute;
+  z-index: 1;
+  margin-left:100px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}
+.omedeto,.start{
+  position: absolute;
+  z-index: 2;
+  top: 100px;
+  font-size: 70px;
+  font-weight: bold;
+}
+.omedeto{
+  left: 190px;
+  color: rgb(184, 94, 43);
+}
+.start{
+  left: 140px;
+  color: rgb(97, 54, 29);
+}
+.startT,.clearT{
+  position: absolute;
+  z-index: 2;
+  color: rgb(0, 0, 0);
+}
+.startT{
+  left:140px ;
+  top: 200px;
+  font-size: 40px;
+}
+.clearT{
+  left:190px ;
+  top: 220px;
+  font-size: 50px;
+}
+.resultWrapper p:first-of-type{
+  top: 290px;
+  left:140px ;
+  color: rgb(0, 0, 0);
+}
+.resultWrapper p:nth-of-type(2){
+  top: 330px;
+  left:140px ;
+  color: rgb(0, 0, 0);
+}
+
+.resultWrapper p{
+  position: absolute;
+  z-index: 2;
+  left:230px ;
+  top: 430px;
+  color: rgb(0, 0, 0);
+  font-size: 23px;
+  font-weight: bold;
+}
+.btn{
+  position: relative;
+  position: absolute;
+  top: 460px;
+  z-index: 2;
+  width: 170px;
+  height: 60px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 3px 3px 4px 2px black;
+}
+.btn:hover{
+  margin-bottom: 3px;
+  box-shadow: none;
+}
+.iroha{
+  left: 250px;
+  background-color: rgb(38, 0, 255);
+color: white;
+}
+.kaguya{
+  left: 450px;
 }

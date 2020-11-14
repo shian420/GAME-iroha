@@ -57,9 +57,7 @@ var cardss;
 var cardss2;
 var co;
 var sound;
-var flg2nd;
-var dubFlg;
-var times;
+var cardIn=0;
 var soimgArr=[];
 var images=[];
 var soundArr=[
@@ -89,7 +87,14 @@ for(var iij=1;iij<=20;iij++){
   images.push(iij);
 }
 
-window.onload=function(){
+const buttons=document.getElementsByTagName('button');
+const reslutWp=document.getElementById('resultWp');
+const h2=document.querySelector('h2');
+
+buttons[0].onclick=function(){
+  $(function(){
+    $('#resultWp').fadeOut(1000);
+  });
 
 var arr=[];
   for(var i=0;i<10;i++){
@@ -159,10 +164,8 @@ function turn(e){
 var div=e.target;
 
 
-if(timerFlg){
-  return;
+if(timerFlg) return;
 
-}
 if(timerFlg2){
   cardss2.className="card defaulut";
   cardss2.innerHTML="";
@@ -175,14 +178,14 @@ if(timerFlg2){
      sound.pause();
    }
 
-
-
   if(div.innerHTML == ""){//もし裏なら
   div.classList.add("bg" + soimgArr[1][div.number]);
   div.classList.remove("defaulut");
   div.innerHTML=div.number;
+
   sound=new Audio(soimgArr[0][div.number]);
   sound.play();
+
   co=1;
   //その数字になる
     }else{
@@ -197,10 +200,25 @@ if(timerFlg2){
 
     if(cardss.number == div.number){
 
+      cardIn++;
       cardss2=div;
       timerFlg=true;
 
+
         sound.addEventListener('ended',function(){
+          if(cardIn === 10){
+            $(function(){
+              $('#resultWp')
+              .slideDown(500);
+              //.css('display','block');
+              $('.close').remove();
+            });
+            h2.className='omedeto';
+            h2.innerHTML="一色いろは編クリア！";
+            buttons[0].innerHTML="もういちど";
+            buttons[1].innerHTML="かぐ告編へ";
+            cardIn=0;
+          }
           cardss2.className="card close";
           cardss.className="card close";
           timerFlg=false;
@@ -220,8 +238,9 @@ if(timerFlg2){
   countf=true;
 }
 }//turn()の終了
-}//ここまで神経衰弱
+//ここまで神経衰弱
 
+}
 //どっとインストール
 const num=10;
 let array=[1,2,3,4,5,6,7,8,9,10];
