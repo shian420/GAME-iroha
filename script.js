@@ -58,7 +58,6 @@ var cardss2;
 var co;
 var sound;
 var cardIn=0;
-var soimgArr=[];
 var images=[];
 var soundArr=[
   'voice/iroha1.wav',
@@ -92,42 +91,48 @@ const reslutWp=document.getElementById('resultWp');
 const h2=document.querySelector('h2');
 
 buttons[0].onclick=function(){
-  $(function(){
-    $('#resultWp').fadeOut(1000);
-  });
+  sample1();
+}//ここまで作成のフェーズ
+
+//div作成のための関数
+function sample1(){
+
+$(function(){
+  $('#resultWp').fadeOut(1000);
+});
 
 var arr=[];
-  for(var i=0;i<10;i++){
-    //2組の数値を同じ配列に代入
-    arr.push(i);
-    arr.push(i);
-    //0~9が2つずつある状態計20個
-  }
-  shuffl(arr);//ナンバーシャッフル
+for(var i=0;i<10;i++){
+  //2組の数値を同じ配列に代入
+  arr.push(i);
+  arr.push(i);
+  //0~9が2つずつある状態計20個
+}
+shuffl(arr);//ナンバーシャッフル
 
 
 //div生成
 const cardBox=document.getElementById('cardBox');
 
 for(var i=0;i<20;i++){
-  const div=document.createElement('div');
-  div.className="card defaulut";//最初は裏
-  div.index=i;
-  div.number=arr[i];
-  //soundとdiv.numberは対応している
-  div.innerHTML="";
-  div.onclick=turn;
-  cardBox.appendChild(div);
-  cardCase.push(div);
+const div=document.createElement('div');
+div.className="card defaulut";//最初は裏
+div.index=i;
+div.number=arr[i];
+//soundとdiv.numberは対応している
+div.innerHTML="";
+div.onclick=turn;
+cardBox.appendChild(div);
+cardCase.push(div);
 }
-}//ここまで作成
-
+}
 
   //配列シャッフル
 
 function shuffle2(soundArr,images){
   var n2=soundArr.length;
   var j2,temp2;
+  var soimgArr=[];
 
   while(n2){//n2は10
   j2=Math.floor(Math.random()*n2--);
